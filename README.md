@@ -45,45 +45,69 @@ Then, log in to Client-1 as a normal user (mydomain\bad.vew).
 ![image](https://github.com/user-attachments/assets/8fcabe78-baf0-40ec-8c81-89c4cf8f9f37)
 
 On DC-1, create four folders on the C:\ drive named: "read-access", "write-access", "no-access", and "accounting".
+
 HOW TO: 
 Go to File Explorer > This PC > Windows (C:) > Right click > New > Folder ( Then go ahead and create all four folders)
-
-![image](https://github.com/user-attachments/assets/b3ba09f6-336a-4d5a-9041-c6c02ecb1956)
 
 Set the following permissions (share the folder)
 
  ![image](https://github.com/user-attachments/assets/95fbf337-b79a-4c5e-94b8-de3b11399b9d)
 
   a. Folder: “read-access”, Group: “Domain Users”, Permission: “Read”
+  
   HOW TO: 
   Right click “read-access” > Properties > Sharing > Share > Type "Domain Users" > Add > Give "Read" > Share > Done. 
 
   ![image](https://github.com/user-attachments/assets/7a965112-2aee-44cc-9a8e-8c48b0613b1b)
 
   b. Folder: “write-access”,  Group: “Domain Users”, Permissions: “Read/Write”
+  
   HOW TO: 
   Right click “read-access” > Properties > Sharing > Share > Type "Domain Users" > Add > Give "Read/Write" > Share > Done. 
 
   ![image](https://github.com/user-attachments/assets/1d2c12e1-b601-4d52-9ec8-127111948b16)
  
   c. Folder: “no-access”, Group: “Domain Admins”, “Permissions: “Read/Write”
+  
   HOW TO: 
   Right click “read-access” > Properties > Sharing > Share > Type "Domain Admins" > Add > Give "Read/Write" > Share > Done. 
   
   d. (Skip accounting for now)
 
 </p>
+
+Now, try accessing the shared folders from Client-1 while logged in as a regular user (bad.vew), then attempt to open each of the shared folders. See which ones you can access? In which ones can you create or modify files? Do the results match the permissions you set?.
+
 <p>
 
-![image](https://github.com/user-attachments/assets/9d78c547-4f2f-4430-ad1f-52ccb9cb2227)
+![image](https://github.com/user-attachments/assets/820cd25e-ef16-4bba-90b9-a7bcb247e688)
   
-On DC-1, add a DNS A record for "mainframe" and set it to point to DC-1’s private IP address.
+On Client-1, navigate to the shared folder (start, run, \\dc-1)
+
+![image](https://github.com/user-attachments/assets/2b6b7724-2867-4460-925d-c2b706743e6b)
+
 HOW TO:
-On DC-1, Open DNS Manager > Expand dc-1 > Forward Lookup Zones > mydomain.com > Right click  > New Host (A or AAAA) > (set up name and IP address) mainframe > 10.0.0.4 > Add Host. 
+Go to File Explorer > Type \\dc-1 > Enter > Double click "read-write" > New > Folder > (I got the above error message because I only have read access)
 
-![image](https://github.com/user-attachments/assets/f4af5c1a-5f0b-49d1-ad4e-50ebce6fe2e3)
+![image](https://github.com/user-attachments/assets/92191bc1-b32c-46cf-9664-06ec60ae2613)
 
-Go back to Client-1 and try to ping it. Observe that it works
+I went to the "write-access" folder, and I can create a folder because I have "read-write" access.
+
+![image](https://github.com/user-attachments/assets/466f0e17-73ea-4927-b2cb-3b234944ac23)
+
+And with the "no-access" folder, I got the above error message. Because only "domain admins" have "read/write" access. 
+
+NOTE:
+
+As a normal user on Client-1, you tried to access the shared folders on DC-1. Based on the permissions:
+
+  I could open "read-access" but not make changes (Read-only).
+
+  I could open and create files in "write-access" (Read/Write).
+
+  I couldn't access "no-access" because it's restricted to Domain Admins.
+
+✅ This confirms that the folder access matches the permissions set on DC-1.
 
 <h2>Local DNS Cache Exercise</h2>
 
