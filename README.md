@@ -1,12 +1,12 @@
 # DNS-Practice
 <p align="center">
   
-![image](https://github.com/user-attachments/assets/f252cd1b-789a-47c2-9fc3-e420490c815f)
+![image](https://github.com/user-attachments/assets/9b9c068e-c437-4bb1-b801-740a45b3b55f)
 
 </p>
 
 <h1>DNS - Prerequisites and Installation</h1>
-This tutorial demonstrates how to create and manage DNS A and CNAME records in Active Directory, test DNS resolution, and work with local DNS caching on a Windows Server environment.<br />
+This lab demonstrates how to create shared folders on a domain controller (DC-1), apply different permission levels, and test access from a client machine.<br />
 
 
 <h2>Video Demonstration</h2>
@@ -27,11 +27,11 @@ This tutorial demonstrates how to create and manage DNS A and CNAME records in A
 
 - Windows Server VM (DC-1)
 - Windows Client VM (Client-1)
+- Domain admin and standard user accounts
 - Functional Active Directory Domain
-- Basic Network Tools Available
-- Administrative Privileges
+- File and Printer Sharing enabled on DC-1
 
-<h2>A-Record Exercise</h2>
+<h2>Create some sample file shares with various permissions</h2>
 
 <p>
   
