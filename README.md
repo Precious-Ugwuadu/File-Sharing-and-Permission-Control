@@ -38,19 +38,39 @@ This lab demonstrates how to create shared folders on a domain controller (DC-1)
 
 To begin, log in to DC-1 using your domain administrator account (mydomain.com\jane_admin).
 
-![image](https://github.com/user-attachments/assets/b3dacf54-9840-4de6-b57b-c3bbeff9d210)
+![image](https://github.com/user-attachments/assets/02cbea81-17d4-4501-ab44-060a2c89a0d9)
 
-Then, log in to Client-1 using an account with administrative privileges (mydomain\jane_admin).
+Then, log in to Client-1 as a normal user (mydomain\bad.vew).
 
-![image](https://github.com/user-attachments/assets/e7a6b86f-0cfd-4e69-828f-12fc8c8e72fa)
+![image](https://github.com/user-attachments/assets/8fcabe78-baf0-40ec-8c81-89c4cf8f9f37)
 
-From Client-1, attempt to ping "mainframe" and observe that the request fails.
-HOW TO:
-On Client-1, Open powershell > Type: ping mainframe > Press Enter and observe the failure message.
+On DC-1, create four folders on the C:\ drive named: "read-access", "write-access", "no-access", and "accounting".
+HOW TO: 
+Go to File Explorer > This PC > Windows (C:) > Right click > New > Folder ( Then go ahead and create all four folders)
 
 ![image](https://github.com/user-attachments/assets/b3ba09f6-336a-4d5a-9041-c6c02ecb1956)
 
-Run nslookup mainframe on Client-1 and observe that it fails, indicating there's no DNS record found for "mainframe".
+Set the following permissions (share the folder)
+
+ ![image](https://github.com/user-attachments/assets/95fbf337-b79a-4c5e-94b8-de3b11399b9d)
+
+  a. Folder: “read-access”, Group: “Domain Users”, Permission: “Read”
+  HOW TO: 
+  Right click “read-access” > Properties > Sharing > Share > Type "Domain Users" > Add > Give "Read" > Share > Done. 
+
+  ![image](https://github.com/user-attachments/assets/7a965112-2aee-44cc-9a8e-8c48b0613b1b)
+
+  b. Folder: “write-access”,  Group: “Domain Users”, Permissions: “Read/Write”
+  HOW TO: 
+  Right click “read-access” > Properties > Sharing > Share > Type "Domain Users" > Add > Give "Read/Write" > Share > Done. 
+
+  ![image](https://github.com/user-attachments/assets/1d2c12e1-b601-4d52-9ec8-127111948b16)
+ 
+  c. Folder: “no-access”, Group: “Domain Admins”, “Permissions: “Read/Write”
+  HOW TO: 
+  Right click “read-access” > Properties > Sharing > Share > Type "Domain Admins" > Add > Give "Read/Write" > Share > Done. 
+  
+  d. (Skip accounting for now)
 
 </p>
 <p>
