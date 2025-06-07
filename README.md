@@ -1,13 +1,12 @@
-# DNS-Practice
+# Network File-Sharing And Permissions
 <p align="center">
   
-![image](https://github.com/user-attachments/assets/9b9c068e-c437-4bb1-b801-740a45b3b55f)
+  ![image](https://github.com/user-attachments/assets/9b9c068e-c437-4bb1-b801-740a45b3b55f)
 
 </p>
 
-<h1>DNS - Prerequisites and Installation</h1>
-This lab demonstrates how to create shared folders on a domain controller (DC-1), apply different permission levels, and test access from a client machine.<br />
-
+<h1>NFSP - Prerequisites and Installation</h1>
+This lab demonstrates how to create shared folders on a domain controller (DC-1), apply different permission levels, and test access from a client Computer.<br />
 
 <h2>Video Demonstration</h2>
 
