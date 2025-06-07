@@ -33,12 +33,12 @@ This lab demonstrates how to create shared folders on a domain controller (DC-1)
 <h2>Create some sample file shares with various permissions</h2>
 
 <p>
-  
+
 ![image](https://github.com/user-attachments/assets/a9fc5771-0045-4f64-8e01-551feec7e98f)
 
-To begin, Log in to DC-1 using your domain administrator account (mydomain.com\jane_admin).
+To begin, log in to DC-1 using your domain administrator account (mydomain.com\jane_admin).
 
-![image](https://github.com/user-attachments/assets/c60d2e05-8fc2-4810-9db0-04b37d639431)
+![image](https://github.com/user-attachments/assets/b3dacf54-9840-4de6-b57b-c3bbeff9d210)
 
 Then, log in to Client-1 using an account with administrative privileges (mydomain\jane_admin).
 
