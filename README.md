@@ -142,7 +142,7 @@ File Explorer > This PC > Type "\\dc-1" > Click on "accounting" > i saw the abov
 
 Log out of Client-1 as  <bad.vew>
 
-![image](https://github.com/user-attachments/assets/7f580c39-cb11-4755-afaf-4cc43918b705 
+![image](https://github.com/user-attachments/assets/559f92b1-e0cd-4211-a830-80aaf54d6794)
 
 On DC-1, make <bad.vew> a member of the “ACCOUNTANTS”  Security Group
 
@@ -150,54 +150,23 @@ HOW TO:
 
 On DC-1, open Active Directory Users and Computers > mydomain.com > Double Click on _GROUPS > Double Click on ACCOUNTANTS > members > Add > bad.vew > Check Names > OK > Apply > OK
 
+![image](https://github.com/user-attachments/assets/11899305-e00a-4925-8843-28f25ed7815d)
 
-![image](https://github.com/user-attachments/assets/4e76f5b1-8834-4787-89a6-83d8636e5fe7)
+Log back into Client-1 as <bad.vew> 
 
-Ping "mainframe" again and notice that the response now shows the updated IP address (8.8.8.8) from the new DNS record.
+![image](https://github.com/user-attachments/assets/ec78c0b0-128a-403c-b8b4-f7231b66b4a7)
 
-WHY?
-Because the DNS cache was cleared, the system had to query the DNS server again. This time, it retrieved the updated A-record for “mainframe,” which reflects the new IP address you set.
+Attempt to access the “accounting” share at \\DC-1\. Check if access is now granted.
 
-
-<h2>CNAME Record Exercise</h2>
-<p>
-  
-![image](https://github.com/user-attachments/assets/97cbf70e-15a7-4fe5-b959-6bc36b5a60b4)
-
-</p>
-<p>
-"Return to DC-1 and create a CNAME record that maps the hostname 'search' to 'www.google.com'."
 HOW TO:
-On DC-1, Open DNS Manager > Expand dc-1 > Forward Lookup Zones > mydomain.com > Right click  > New Alias (CNAME) > (set up Alias name and FQDN) SEARCH > WWW.GOOGLE.COM > OK.  
 
-![image](https://github.com/user-attachments/assets/b7d4d8b5-8079-4f1d-b11c-83d9c7e9332d)
+Go to File Explorer > \\dc-1 > Click on "accounting" and it should open > Right Click > New > New Text Document > and I can create a new document. 
 
-Go back to Client-1 and attempt to ping “search”, observe the results of the CNAME record
 
-![image](https://github.com/user-attachments/assets/126e8fb3-d9ea-40b1-887b-c4360a03cb20)
+🔍 Lab Summary (Very Brief)
+In this lab, you created shared folders on DC-1 with different permission levels and tested access from Client-1 as a normal user. You also created a security group ("ACCOUNTANTS"), restricted folder access to that group, and verified access before and after adding the user to the group. This demonstrated how file sharing and group-based permissions work in a Windows domain.
 
-On Client-1, run nslookup search and check the output to see the CNAME record details.
-why:
-The nslookup command checks how DNS resolves the name search. If the CNAME record is set up properly, the output will show that search points to www.google.com.
 
-![image](https://github.com/user-attachments/assets/ec3fdab6-c98a-481d-8ea8-643537157d0c)
-
-I tried searching the name "https://search" and i got the above error message because the name does not match certificate of google.com
-
-Lab Summary 
-This lab covers:
-
-A-Record Setup: You create a DNS A-record for mainframe so it resolves to an IP.
-→ Shows how DNS maps names to IPs.
-
-DNS Cache Behavior: Changing the IP in DNS doesn’t update immediately on the client due to caching.
-→ Shows the importance of flushing DNS cache to get updated records.
-
-CNAME Record: You create a CNAME so search points to www.google.com.
-→ Demonstrates how aliases work in DNS.
-
-Why It Matters
-This lab teaches basic DNS management—how to add records, troubleshoot resolution issues, and understand caching.
 </p>
 
 <br /># File-Sharing-and-Permission-Control
