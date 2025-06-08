@@ -99,7 +99,7 @@ And with the "no-access" folder, I got the above error message. Because only "do
 
 NOTE:
 
-As a normal user on Client-1, you tried to access the shared folders on DC-1. Based on the permissions:
+As a normal user on Client-1, I tried to access the shared folders on DC-1. Based on the permissions:
 
   I could open "read-access" but not make changes (Read-only).
 
@@ -109,22 +109,28 @@ As a normal user on Client-1, you tried to access the shared folders on DC-1. Ba
 
 ✅ This confirms that the folder access matches the permissions set on DC-1.
 
-<h2>Local DNS Cache Exercise</h2>
+<h2>Create an “ACCOUNTANTS” Security Group, assign permissions, and test access</h2>
 
 </p>
 <br />
 
 <p>
 
-![image](https://github.com/user-attachments/assets/532791cb-b44d-448c-90e2-074cd5208c8a)
+![image](https://github.com/user-attachments/assets/a1bf900f-110e-43f4-839d-a4772658d221)
   
-Return to DC-1 and update the mainframe DNS A record to point to 8.8.8.8 instead of its original IP address.
+On DC-1, open Active Directory Users and Computers and create a new security group named “ACCOUNTANTS”.
+
+HOW TO:
+Right click mydomain.com > New > Organizational Unit > Name (_GROUPS) > OK > Refresh > Click on _GROUPS > Right Click > New > Group > Group name: "ACCOUNTANTS" > OK
+
 
 ![image](https://github.com/user-attachments/assets/25233fd8-9050-4150-b933-14a9b8c7e794)
 
-On Client-1, ping "mainframe" again and notice that it still responds with the old IP address (10.0.0.4).
-WHY?
-It still pings the old IP address because Client-1 has cached the previous DNS record locally. The system uses this cached entry instead of querying the DNS server again. This is known as the local DNS cache, and it remains valid until it expires or is manually cleared. 
+On the “accounting” folder I created earlier, I Wwill set the following permissions: Folder: “accounting”, Group: “ACCOUNTANTS”, Permissions: “Read/Write”
+
+HOW TO:
+
+
 
 ![image](https://github.com/user-attachments/assets/76ab5726-e04d-4d98-b039-cfb46ba967ed)
 
