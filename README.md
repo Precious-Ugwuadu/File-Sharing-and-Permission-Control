@@ -121,14 +121,17 @@ As a normal user on Client-1, I tried to access the shared folders on DC-1. Base
 On DC-1, open Active Directory Users and Computers and create a new security group named “ACCOUNTANTS”.
 
 HOW TO:
+
 Right click mydomain.com > New > Organizational Unit > Name (_GROUPS) > OK > Refresh > Click on _GROUPS > Right Click > New > Group > Group name: "ACCOUNTANTS" > OK
 
 
-![image](https://github.com/user-attachments/assets/25233fd8-9050-4150-b933-14a9b8c7e794)
+![image](https://github.com/user-attachments/assets/79322788-4794-4a92-8cad-4f1cc7b30f5c)
 
-On the “accounting” folder I created earlier, I Wwill set the following permissions: Folder: “accounting”, Group: “ACCOUNTANTS”, Permissions: “Read/Write”
+On the “accounting” folder I created earlier, I will set the following permissions: Folder: “accounting”, Group: “ACCOUNTANTS”, Permissions: “Read/Write”
 
 HOW TO:
+
+Right click “accounting” > Properties > Sharing > Share > Type "ACCOUNTANTS" > Add > Give "Read/Write" > Share > Done. 
 
 
 
