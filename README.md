@@ -163,8 +163,9 @@ HOW TO:
 Go to File Explorer > \\dc-1 > Click on "accounting" and it should open > Right Click > New > New Text Document > and I can create a new document. 
 
 
-🔍 Lab Summary (Very Brief)
-In this lab, you created shared folders on DC-1 with different permission levels and tested access from Client-1 as a normal user. You also created a security group ("ACCOUNTANTS"), restricted folder access to that group, and verified access before and after adding the user to the group. This demonstrated how file sharing and group-based permissions work in a Windows domain.
+🔍 Lab Summary 
+
+In this lab, I created shared folders on DC-1 with different permission levels and tested access from Client-1 as a normal user. I also created a security group ("ACCOUNTANTS"), restricted folder access to that group, and verified access before and after adding the user to the group. This demonstrated how file sharing and group-based permissions work in a Windows domain.
 
 
 </p>
