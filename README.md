@@ -133,15 +133,23 @@ HOW TO:
 
 Right click “accounting” > Properties > Sharing > Share > Type "ACCOUNTANTS" > Add > Give "Read/Write" > Share > Done. 
 
+![image](https://github.com/user-attachments/assets/abbc8dcd-881f-4d6b-ae12-a288ec266096)
 
+While logged into Client-1 as <bad.vew>, attempt to access the "accounting" shared folder — access should be denied.
 
-![image](https://github.com/user-attachments/assets/76ab5726-e04d-4d98-b039-cfb46ba967ed)
+HOW TO:
+File Explorer > This PC > Type "\\dc-1" > Click on "accounting" > i saw the above error message because <bad.vew> isn't in the "ACCOUNTANTS" group, so they don’t have permission to access the folder.
 
-Check the local DNS cache by running ipconfig /displaydns > dns.txt > Enter > notepad dns.txt to view stored DNS entries on the system.
+Log out of Client-1 as  <bad.vew>
 
-![image](https://github.com/user-attachments/assets/7f580c39-cb11-4755-afaf-4cc43918b705)
+![image](https://github.com/user-attachments/assets/7f580c39-cb11-4755-afaf-4cc43918b705 
 
-Run the command ipconfig /flushdns and ipconfig /displaydns to clear the saved DNS records on your computer, so it can fetch updated IP addresses from the DNS server. (Make sure to run this as an Admin). running ipconfig /flushdns cleared all previously stored DNS records. So when you run ipconfig /displaydns afterward, the cache appears empty since it was just wiped clean.
+On DC-1, make <bad.vew> a member of the “ACCOUNTANTS”  Security Group
+
+HOW TO:
+
+On DC-1, open Active Directory Users and Computers > mydomain.com > Double Click on _GROUPS > Double Click on ACCOUNTANTS > members > Add > bad.vew > Check Names > OK > Apply > OK
+
 
 ![image](https://github.com/user-attachments/assets/4e76f5b1-8834-4787-89a6-83d8636e5fe7)
 
